@@ -18,8 +18,13 @@
 
 Запуск на локальной машине:
   > cd [директория с проектом]
+  
   > virtualenv env
+  
   > env\Scripts\activate
+  
   > pip install -r requirements.txt
+  
   > FLASK_APP=[директория с проектом]
+  
   > flask run
