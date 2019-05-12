@@ -1,0 +1,95 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    upload file
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="container">
+
+
+        {#action="{{ url_for('main.upload') }}"#}
+        <form id="file-upload-ajax-form" class="form-signin" method="POST" enctype="multipart/form-data">
+
+            <p id="myElem" style="display:none">Saved</p>
+            <h2 class="form-signin-heading">upload file</h2>
+            <fieldset>
+                <label for="inputFile">file:</label>
+                <input type="file" id="inputFile" name="inputFile" class="form-control" required autofocus>
+            </fieldset>
+            <fieldset>
+                <label for="inputMinutes">lifetime in minutes:</label>
+                <input type="text" id="inputMinutes" name="inputMinutes" class="form-control" required autofocus>
+            </fieldset>
+            <fieldset>
+                <button id="upload-ajax" class="btn btn-lg btn-primary btn-block" type="submit">submit</button>
+            </fieldset>
+
+            <a href="{{ url_for('main.index') }}">home</a>
+        </form>
+        <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+        <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+
+    </div> <!-- /container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/ajax-file-uploader.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block title %}upload file{% endblock %}#}
+{##}
+{#{% block css %}#}
+{#<!-- Custom styles for this template -->#}
+{#<link href="{{ url_for('static', filename='css/sign.css') }}" rel="stylesheet">#}
+{#{% endblock %}#}
+{##}
+{#{% block body %}#}
+{##}
+{##}
+{#<div class="container">#}
+{##}
+{#    <form class="form-signin" method="POST" action="{{ url_for('main.upload') }}" enctype="multipart/form-data">#}
+{#        <h2 class="form-signin-heading">upload file</h2>#}
+{#            <label for="inputFile" class="sr-only">file</label>#}
+{#            <input type="file" id="inputFile" name="inputFile" class="form-control" required autofocus>#}
+{#        <button class="btn btn-lg btn-primary btn-block" type="submit">submit</button>#}
+{#    </form>#}
+{##}
+{#</div> <!-- /container -->#}
+{#{% endblock %}#}
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport"#}
+{#          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
+{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+{#    <title>Document</title>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<form method="POST" action="{{ url_for('main.upload') }}" enctype="multipart/form-data">#}
+{#    <input type="file" name="inputFile">#}
+{#    <button type="submit">Submit</button>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}

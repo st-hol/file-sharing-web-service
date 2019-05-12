@@ -1,0 +1,18 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <table class="table table-striped" border width="100%">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>expiration time</th>
+            {#                <th>download</th>#}
+        </tr>
+        {% for file in all_files %}
+            <tr>
+                <td>{{ file.id }}</td>
+                <td>{{ file.name }}</td>
+                <td>{{ file.expiration_time }} </td>
+                {#                    <td><a href={{ url_for('main.download', id_file = file.id) }}> click to download </a></td>#}
+            </tr>
+        {% endfor %}
+    </table>
+</div>

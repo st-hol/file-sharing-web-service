@@ -1,0 +1,38 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    show all
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/starter-template.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'guest/sidebar.html' %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <table class="table table-striped" border width="100%">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>expiration time</th>
+                <th>remaining</th>
+                <th>download</th>
+            </tr>
+
+            <tr>
+                <td>{{ file.id }}</td>
+                <td>{{ file.name }}</td>
+                <td>{{ file.expiration_time }} </td>
+                <td>{{ remaining_lifetime }}</td>
+                <td><a href={{ url_for('main.download', id_file = file.id) }}> click to download </a></td>
+            </tr>
+
+        </table>
+
+    </div>
+{% endblock %}

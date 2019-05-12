@@ -1,0 +1,82 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    file eXchanger
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/starter-template.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    {% include 'guest/sidebar.html' %}
+
+
+    <div class="container">
+
+        <div class="starter-template">
+            <h1>file eXchanger</h1>
+            <p class="lead">Sign up. Then sign in. Then upload file. Then download it. Profit.</p>
+        </div>
+
+    </div><!-- container -->
+
+    <hr style="width: 100%; color: black; height: 1px; background-color:black;"/>
+
+    <div class="container">
+
+        {#    action="{{ url_for('main.upload') }}"#}
+        <form id="file-upload-ajax-form" class="form-signin" method="POST"
+              enctype="multipart/form-data">
+            <h2 class="form-signin-heading">upload file</h2>
+            <fieldset>
+                <label for="inputFile">file:</label>
+                <input type="file" id="inputFile" name="inputFile" class="form-control" required autofocus>
+            </fieldset>
+            <fieldset>
+                <label for="inputMinutes">lifetime in minutes:</label>
+                <input type="text" id="inputMinutes" name="inputMinutes" class="form-control" required autofocus>
+            </fieldset>
+            <fieldset>
+                <button id="upload-ajax" class="btn btn-lg btn-primary btn-block" type="submit">submit</button>
+            </fieldset>
+        </form>
+        <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+        <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+    </div> <!-- /container -->
+
+
+
+    <hr style="width: 100%; color: black; height: 1px; background-color:black;"/>
+
+    <div class="container col-lg-offset-5 col-lg-5">
+        <button class="btn"><a href="{{ url_for('main.show_all') }}">show all files you have access to</a></button>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/ajax-file-uploader.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+
+
+{#    <div class="container">#}
+{#        <form class="form-signin" method="POST" action="{{ url_for('main.show_single') }}">#}
+{#            <h2 class="form-signin-heading">inspect single file by id</h2>#}
+{#            <fieldset>#}
+{#                <label for="idFile">id file:</label>#}
+{#                <input type="text" id="idFile" name="idFile" class="form-control" required autofocus>#}
+{#            </fieldset>#}
+{#            <fieldset>#}
+{#                <button class="btn btn-lg btn-primary btn-block" type="submit">submit</button>#}
+{#            </fieldset>#}
+{#        </form>#}
+{##}
+{#    </div> <!-- /container -->#}
